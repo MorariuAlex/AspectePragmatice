@@ -1,0 +1,84 @@
+<div fxFlexFill fxLayout="row">
+  <div fxLayout="column">
+    <mat-card fxFlexFill="column" fxLayout="column" fxLayoutAlign="space-between">
+      <div fxLayout="row">
+        <div fxLayout="column">
+          <div fxLayout="row" fxLayoutGap="2em">
+            <mat-form-field>
+              <input matInput placeholder="First Name" [(ngModel)]="registerData.first_name">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" [(ngModel)]="registerData.last_name">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row">
+            <mat-form-field fxFlexFill="row">
+              <input matInput placeholder="Email" [(ngModel)]="registerData.email">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row">
+            <mat-form-field fxFlexFill="row">
+              <input matInput placeholder="Phone number" [(ngModel)]="registerData.phone_number">
+            </mat-form-field>
+          </div>
+          <div fxLayout="row">
+            <mat-form-field fxFlexFill="row">
+              <input type="password" matInput placeholder="Password" [(ngModel)]="registerData.password">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row">
+            <mat-form-field fxFlexFill="row">
+              <mat-select placeholder="City" [(ngModel)]="registerData.city_id">
+                <mat-option *ngFor="let city of cities" [value]="city.id" >
+                  {{city.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row">
+            <mat-form-field fxFlexFill="row">
+              <input matInput [matDatepicker]="picker" placeholder="Birth date" [(ngModel)]="birth_date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <br>
+          <div fxLayout="row">
+            <mat-radio-group fxFlexFill="row" fxLayoutAlign="space-around" [(ngModel)]="registerData.gender">
+              <mat-radio-button value="F">Female</mat-radio-button>
+              <mat-radio-button value="M">Male</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center">
+        <app-logo [white]="false"></app-logo>
+      </div>
+      <div fxLayout="row">
+        <button mat-stroked-button fxFlexFill="row" (click)="register()"> Register
+        </button>
+      </div>
+    </mat-card>
+  </div>
+
+  <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" fxLayout="column" class="carousel-class">
+    <ng-template ngbSlide>
+      <div class="img-wrap">
+        <img src="/assets/register/adult-afro-blazer-1056556.png"  class="w-100 h-100" alt="Random first slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="img-wrap">
+        <img src="/assets/register/beautiful-beauty-blurred-background-1239291.png"  class="w-100 h-100" alt="Random first slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="img-wrap">
+        <img src="/assets/register/casual-college-computer-1438081.jpg"  class="w-100 h-100" alt="Random first slide">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+</div>

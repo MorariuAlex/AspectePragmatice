@@ -1,0 +1,21 @@
+.card-list {
+    height: 600px;
+    width: auto;
+    overflow-y: scroll;
+}
+
+.card-item {
+    height: 60px;
+    border: 2px black;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

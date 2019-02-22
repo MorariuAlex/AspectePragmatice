@@ -1,0 +1,45 @@
+<div fxFill>
+  <div fxLayout="row" fxFill="column">
+    <div fxFlex="50" class="primary-column" fxLayout="column" fxLayoutAlign="center" fxLayoutGap="2em">
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <app-logo [white]="true" [logoWidth]="200" [logoHeight]="200"></app-logo>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxLayout="column" fxFlex="45">
+          <div fxLayout="row">
+            <mat-form-field class="dark-theme" fxFlexFill="row">
+              <input class="dark-theme" type="text" matInput [(ngModel)]="loginData.email" placeholder="Email">
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row">
+            <mat-form-field class="dark-theme" fxFlexFill="row">
+              <input class="dark-theme" type="password" matInput [(ngModel)]="loginData.password" placeholder="Password">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center">
+        <div fxLayout="column" fxFlex="30" fxLayoutGap=".5em">
+          <div fxLayout="row">
+            <button mat-raised-button color="accent" fxFlexFill="row" (click)='login()'>Log In</button>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center">
+            <a routerLink="/register">You don't have an account? Sign up!</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div fxFlex="50" fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="row">
+        <span routerLink="/dashboard" fxLayoutAlign="center center">Or continue without logging in &nbsp;&nbsp; <img src="/assets/login/arrowNext.png"></span>
+      </div>
+    </div>
+  </div>
+</div>

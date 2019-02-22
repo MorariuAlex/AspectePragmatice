@@ -1,0 +1,181 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-1">
+      <app-logo [white]="false" [logoHeight]="75" [logoWidth]="75"></app-logo>
+    </div>
+
+    <div class="col-6">
+
+      <div class="row">
+        <mat-form-field class="w-100 mt-2">
+          <mat-label>
+            <mat-icon>search</mat-icon>&nbsp;Search people by skill...
+          </mat-label>
+          <input type="search" matInput title="search" [(ngModel)]="skill_name" (change)="searchUsers()">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="col-4 offset-1">
+      <div class="row justify-content-between mt-2">
+        <button (click)="becomeEmployee()" mat-flat-button>Become an employee</button>
+        <span>
+          <a [routerLink]="['/profile/'+myid]"><button mat-icon-button><mat-icon>account_circle</mat-icon></button></a>
+          <button (click)="logout()" mat-icon-button><mat-icon>exit_to_app</mat-icon></button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3 offset-1 mt-5">
+      <div class="card-list">
+          <mat-card *ngFor="let user of users" class="card-item mt-2 mr-2" (click)="navigate(user)">
+
+              <mat-card-header >
+                  <mat-card-title class="md-card-title" >{{user.first_name}} </mat-card-title>
+                  <img mat-card-avatar [src]="user.avatar_url"  class="avatar img-circle img-thumbnail" >
+              </mat-card-header>
+
+          </mat-card>
+      </div>
+    </div>
+
+    <div class="col-6 offset-1 mt-5 bg-gray">
+      <div class = "card-list">
+        <mat-accordion >
+            <mat-expansion-panel class="mt-2">
+              <mat-expansion-panel-header [style.backgroundColor]="'pink'">
+                <mat-panel-title class = "font-weight-bold">
+                  <mat-icon class = "mt-2">add_circle_outline</mat-icon>
+                  <p class = "ml-2 mt-2">NEW JOB POST</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+            <form (ngSubmit)="onSubmit()" #jobForm="ngForm">
+                <div fxLayout="row" fxLayoutGap="2em">
+
+                    <mat-form-field>
+                      <input matInput placeholder="Title"
+                        type="text" class="form-control"
+                        id="title"
+                        name="title"
+                        required
+                        [(ngModel)]="job.title"
+                        #title="ngModel">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <input matInput placeholder="Description"
+                        type="text" class="form-control"
+                        id="description"
+                        name="description"
+                        required
+                        [(ngModel)]="job.description"
+                        #description="ngModel">
+                    </mat-form-field>
+                  </div>
+
+                   <div fxLayout="row" fxLayoutGap="2em">
+                    <mat-form-field class ="w-20">
+                      <input matInput type="number" placeholder="Payment"
+                        type="text" class="form-control"
+                        id="payment"
+                        name="payment"
+                        required
+                        [(ngModel)]="job.payment"
+                        #payment="ngModel">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <mat-select placeholder="City" class="form-control"
+                      id="city"
+                      name="city"
+                      required
+                      [(ngModel)]="job.city_id"
+                      #city="ngModel">
+                        <mat-option *ngFor="let city of cities" [value]="city.id">
+                          {{city.name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div fxLayout="row" fxLayoutGap="2em">
+                    <mat-form-field class="w-100">
+                        <input matInput [matDatepicker]="startDatePicker" required placeholder="Start date" [(ngModel)]="start_date" name="start_date">
+                        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #startDatePicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100">
+                        <input matInput [matDatepicker]="endDatePicker" required placeholder="End date" [(ngModel)]="end_date" name="end_date">
+                        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endDatePicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                  <div fxLayout="row" fxLayoutAlign="end">
+                    <button type="submit" [disabled]="!jobForm.form.valid" mat-raised-button color="primary"> Save </button>
+                  </div>
+            </form>
+
+
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+
+        <mat-accordion *ngFor="let job of myJobs"  class="card-item mt-2 mr-2">
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+              {{job.title}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+
+            <div fxLayout="row" fxLayoutGap="2em">
+              <mat-form-field>
+                <input matInput placeholder="Title" value={{job.title}} [readonly]="true">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="Description" value={{job.description}} [readonly]="true">
+              </mat-form-field>
+            </div>
+
+             <div fxLayout="row" fxLayoutGap="2em">
+              <mat-form-field class ="w-20">
+                <input matInput type="number" placeholder="Payment" value={{job.payment}} [readonly]="true" >
+              </mat-form-field>
+
+              <mat-form-field>
+                <input matInput placeholder="City" value={{job.name}} [readonly]="true">
+              </mat-form-field>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="2em">
+              <mat-form-field class="w-100">
+                  <input matInput  placeholder="Start date" value = {{job.start_date}} [readonly]="true">
+              </mat-form-field>
+
+              <mat-form-field class="w-100">
+                  <input matInput placeholder="End date" value = {{job.end_date}} [readonly]="true">
+              </mat-form-field>
+            </div>
+            <div fxLayout="row" fxLayoutGap="2em">
+                <div class="container-fluid"><a class="btn btn-outline-primary" [routerLink]="['/job',job.id]"> More details</a></div>
+                <div class="container-fluid"><button class="btn btn-outline-secondary">Edit job offer</button></div>
+                <div class="container-fluid"><button class="btn btn-outline-danger" (click)="deleteJob(job.id)">Delete job offer</button></div>
+            </div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+
+        </div>
+    </div>
+  </div>
+
+</div>

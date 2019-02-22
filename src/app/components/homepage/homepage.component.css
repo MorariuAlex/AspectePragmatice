@@ -1,0 +1,13 @@
+.homepage-background {
+  background: url("~src/assets/homepage/HomepageWallpaper.png") center;
+  background-size: cover;
+}
+
+button {
+  width: 300px;
+}
+
+button[mat-stroked-button] {
+  color: #fff;
+}
+

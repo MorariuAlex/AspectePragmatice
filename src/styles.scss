@@ -1,0 +1,155 @@
+@import 'theme';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '~bootstrap/scss/bootstrap';
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Regular'), url('assets/fonts/AvenirNextLTPro-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Condensed'), url('assets/fonts/AvenirNextLTPro-Cn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Condensed Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Condensed Italic'), url('assets/fonts/AvenirNextLTPro-CnIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Italic'), url('assets/fonts/AvenirNextLTPro-It.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Ultra Light Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Ultra Light Condensed'), url('assets/fonts/AvenirNextLTPro-UltLtCn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Ultra Light Condensed Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Ultra Light Condensed Italic'), url('assets/fonts/AvenirNextLTPro-UltLtCnIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Medium Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Medium Condensed'), url('assets/fonts/AvenirNextLTPro-MediumCn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Medium Condensed Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Medium Condensed Italic'), url('assets/fonts/AvenirNextLTPro-MediumCnIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Demi';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Demi'), url('assets/fonts/AvenirNextLTPro-Demi.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Demi Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Demi Condensed'), url('assets/fonts/AvenirNextLTPro-DemiCn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Demi Condensed Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Demi Condensed Italic'), url('assets/fonts/AvenirNextLTPro-DemiCnIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Demi Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Demi Italic'), url('assets/fonts/AvenirNextLTPro-DemiIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Bold'), url('assets/fonts/AvenirNextLTPro-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Bold Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Bold Condensed'), url('assets/fonts/AvenirNextLTPro-BoldCn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Bold Condensed Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Bold Condensed Italic'), url('assets/fonts/AvenirNextLTPro-BoldCnIt.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Heavy Condensed';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Heavy Condensed'), url('assets/fonts/AvenirNextLTPro-HeavyCn.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir Next LT Pro Heavy Condensed Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir Next LT Pro Heavy Condensed Italic'), url('assets/fonts/AvenirNextLTPro-HeavyCnIt.woff') format('woff');
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Avenir Next LT Pro Regular';
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  background: url('/logo/logo.png');
+  background-size: cover;
+}
+
+.bg-gray {
+  background-color: #e3e3e3;
+}
+
+@each $color, $value in $colors {
+  .bg-light-#{$color} {
+    background-color: lighten($value, 50);
+  }
+}
+
+

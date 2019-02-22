@@ -1,0 +1,112 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-1">
+      <app-logo [white]="false" [logoHeight]="75" [logoWidth]="75"></app-logo>
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <mat-form-field class="w-100 mt-2">
+          <mat-label>
+            <mat-icon>search</mat-icon>&nbsp;I'm interested in...
+          </mat-label>
+          <input type="search" matInput title="search" [(ngModel)]="searchModel.search" (change)="searchJobs()">
+        </mat-form-field>
+      </div>
+
+      <div class="row bg-gray">
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="startDatePicker" placeholder="Start date" [(ngModel)]="start_date" (change)="searchJobs()">
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <input matInput [matDatepicker]="endDatePicker" placeholder="End date" [(ngModel)]="end_date" (change)="searchJobs()">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field class="w-100">
+            <input matInput type="number" placeholder="Hourly rate" [(ngModel)]="searchModel.payment"
+                   (change)="searchJobs()">
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field fxFlexFill="row">
+            <mat-select placeholder="City" [(ngModel)]="searchModel.city" (selectionChange)="searchJobs()">
+              <mat-option value="">None</mat-option>
+              <mat-option *ngFor="let city of cities" [value]="city.id">
+                {{city.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row bg-light mt-2">
+        <div class="col">
+          <div class="row my-2 mx-3 bg-gray" *ngFor="let jobPosting of jobs">
+            <div class="col-7">
+              <h3>{{jobPosting.title}}</h3>
+            </div>
+            <div class="col-2">
+              <span class="d-flex align-items-center"><mat-icon>attach_money</mat-icon> {{jobPosting.payment}} / h</span>
+            </div>
+            <div class="col-2">
+              <span class="d-flex align-items-center"><mat-icon>near_me</mat-icon> {{jobPosting.city.name}}</span>
+            </div>
+            <div class="col-1">
+              <a [routerLink]="['/job', jobPosting.id]"><span class="d-flex align-items-center"><mat-icon>fast_forward</mat-icon></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4  offset-1">
+      <div class="row justify-content-between mt-2">
+        <button (click)="becomeEmployer()" mat-flat-button>Become an employer</button>
+        <span>
+          <a [routerLink]="['/profile/'+myid]"><button mat-icon-button><mat-icon>account_circle</mat-icon></button></a>
+          <button mat-icon-button><mat-icon>exit_to_app</mat-icon></button>
+        </span>
+      </div>
+
+      <div class="row bg-gray mt-4 mr-5">
+        <div class="col p-2">
+          <div class="row justify-content-center"><h4>Top keywords used this week</h4></div>
+          <div class="row">
+            <div class="col-4 p-2 text-center align-items-center" *ngFor="let keyword of topKeywords">{{keyword.word}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row bg-gray mt-4 mr-5">
+        <div class="col p-2">
+          <div class="row justify-content-center"><h4>Best paid jobs this week</h4></div>
+
+          <div class="row bg-light-green mx-3 my-1" *ngFor="let job of bestJobs">
+            <div class="col-7">
+              <h5>{{job.title}}</h5>
+            </div>
+            <div class="col-4">
+              <span class="d-flex align-items-center"><mat-icon>attach_money</mat-icon> {{job.payment}} / h</span>
+            </div>
+            <div class="col-1 d-flex justify-content-end">
+                <a [routerLink]="['/job',job.id]"><span class="d-flex align-items-center"><mat-icon>fast_forward</mat-icon></span></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

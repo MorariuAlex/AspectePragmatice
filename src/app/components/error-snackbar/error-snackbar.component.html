@@ -1,0 +1,18 @@
+<div (click)="dismiss()" >
+
+  <h2 class="text-danger text-center">Error!</h2>
+
+  <div *ngIf="status === 422">
+    <pre class="text-danger">{{errorMessage}}</pre>
+  </div>
+
+  <div *ngIf="status === 401">
+    <span class="text-danger">Please login before</span>
+  </div>
+
+
+  <div *ngIf="status === 403">
+    <span class="text-danger">You are not allowed</span>
+  </div>
+
+</div>

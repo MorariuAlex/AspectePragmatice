@@ -1,0 +1,9 @@
+.logo-white {
+  background-image: url("~src/assets/logo/logo.png");
+  background-size: cover;
+}
+
+.logo-red {
+  background-image: url("~src/assets/logo/redlogo.png");
+  background-size: cover;
+}

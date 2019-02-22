@@ -1,0 +1,13 @@
+.primary-column {
+  background-color: #d3a1a4;
+}
+
+mat-form-field {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-size: .8em;
+}

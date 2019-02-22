@@ -1,0 +1,18 @@
+<div fxFill class="homepage-background">
+  <div fxLayout="column" fxLayoutAlign="center" fxFill="column" fxLayoutGap="2em">
+    <div fxLayout="row" fxLayoutAlign="center">
+      <app-logo [white]="true" [logoWidth]="150" [logoHeight]="150"></app-logo>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center">
+      <div fxLayout="column" fxLayoutGap="1em">
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button mat-raised-button color="primary" (click)="wantWork()">I want to work</button>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <button mat-raised-button color="accent" (click)="wantHire()">I want to hire</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
